@@ -7,7 +7,7 @@
   "license": "",
   "scripts": {
     "start": "babel-node server/index.js --presets env",
-    "test": "cross-env NODE_ENV=test mocha  --require babel-register mockDB/**/*.test.js"
+    "test": "cross-env NODE_ENV=test mocha --require babel-register server/**/*.test.js mockDB/**/*.test.js QSim/**/*.test.js QDevTools/**/*.test.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

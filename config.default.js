@@ -1,0 +1,5 @@
+export default {
+	'PRODUCERS_COUNT': 10,
+	'CONSUMER_COUNT': 10,
+	'WONDER_Q_SERVER_PORT': 3000
+}

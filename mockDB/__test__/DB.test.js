@@ -11,7 +11,11 @@ describe('MOCK DB', function(){
 
 	//POP
 
+	//error when POP to a list that doesn't exist
+	
 	//PUSH
+
+	//error when PUSH to a list that doesn't exist
 
 	//POPPUSH
 

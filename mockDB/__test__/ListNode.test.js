@@ -7,12 +7,12 @@ describe('MOCK DB -- ListNode', function(){
 		expect(listNode).toBeDefined();
 	});
 
-	it('properly displays an empty payload when no payload is passed', function(){
+	it('displays an empty payload when no payload is passed', function(){
 		let listNode = new ListNode();
 		expect(listNode.payload).toBeUndefined();
 	});
 
-	it('properly stores a payload when passed on instantiation', function(){
+	it('stores a payload when passed on instantiation', function(){
 		let listNode = new ListNode(1);
 		expect(listNode.payload).toEqual(1);
 	});

@@ -6,7 +6,7 @@ export default class ListNode {
 	constructor(payload){
 		this.payload = payload;
 		this.locked = false;
-		this.id = index++; 
+		this.id = this.generateId();
 	}
 
 	requestLock() {
@@ -34,6 +34,10 @@ export default class ListNode {
 
 	get() {
 		return this.payload;
+	}
+
+	generateId(){
+		return index++;
 	}
 	//TODO add a delete or some sort of locking READ operation
 };
