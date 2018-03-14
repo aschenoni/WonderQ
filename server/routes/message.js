@@ -1,5 +1,6 @@
 import express from 'express';
 import db from '../../mockDB';
+import Message from '../Message';
 
 const router = express.Router();
 
@@ -13,14 +14,13 @@ const router = express.Router();
 	//if the consumer doesn't respone with GET /Done/:id before expiration time
 	//we need to push pop this node back to the from of the list
 router.get('/', (req, res)=>{
-	console.log('getting');
-	res.send('ok');
+	res.send(db.pop());
 });
 
 //POST Message -- Push a message
 router.post('/', (req, res)=>{
-	console.log(req.body);
-	res.send(`ok ${req.body.message}`);
+	db.push(new Message('this is a test message'));
+	res.send(db);
 });
 
 //POST Done /:id -- pushPop a message moving it from inProcess list to done list
