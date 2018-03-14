@@ -34,4 +34,9 @@ export default class DB {
 	pop(list = this.default){
 		return this.lists[list].pop();
 	}
+
+	//For cases when we need a popped node to push to the front of the list
+	priorityPopPush(popFromListName, pushToListName){
+		//TODO
+	}
 }
