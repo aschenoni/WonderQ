@@ -6,10 +6,13 @@
   "author": "A-star <austin.joyner@aeonsoftworks.com>",
   "license": "",
   "scripts": {
-    "start": "babel-node server/index.js --presets es2015,stage-2",
+    "start": "babel-node server/index.js --presets env",
     "test": "cross-env NODE_ENV=test mocha  --require babel-register mockDB/**/*.test.js"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
     "pm2": "^2.10.1"
   },
   "devDependencies": {
