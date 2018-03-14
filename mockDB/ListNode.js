@@ -1,4 +1,5 @@
-let index = 0; //index closure for generating ids, obviously this is a mock, doesn't persist between sessions
+let index = 0; //index closure for generating ids, obviously this is a mock and doesn't persist between sessions
+//use a more robust uuid generation algorithm or even better leverage a DB with this functionality!
 
 //Very rough mimic of db document level locking mechanism
 export default class ListNode {

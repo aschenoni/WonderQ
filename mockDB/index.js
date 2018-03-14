@@ -1,0 +1,10 @@
+import DB from './DB';
+
+const db = new DB();
+
+db
+	.createList(0)
+	.createList('InProcess')
+	.default(0);
+
+export default db;
