@@ -1,0 +1,11 @@
+{
+  "name": "WonderQ",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/aschenoni/WonderQ",
+  "author": "A-star <austin.joyner@aeonsoftworks.com>",
+  "license": "MIT",
+  "dependencies": {
+    "pm2": "^2.10.1"
+  }
+}
