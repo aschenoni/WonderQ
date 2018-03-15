@@ -4,10 +4,10 @@ import Message from '../Message';
 
 const router = express.Router();
 
-//TODO Authorize consumers only to consume and not to produce 
-//TODO Authorize producer only to produce and not to consume
-//Doing these auth checks will require splitting these into paths into separate routes most likely
-
+/** TODO Authorize consumers only to consume and not to produce 
+* TODO Authorize producer only to produce and not to consume
+* Doing these auth checks will require splitting these into paths into separate routes most likely
+*/
 
 //GET Message -- pushPop a message moving it from 0 list to inProcess list
 	//TODO we need to set a timer on this get Message, 
@@ -19,8 +19,12 @@ router.get('/', (req, res)=>{
 
 //POST Message -- Push a message
 router.post('/', (req, res)=>{
-	db.push(new Message('this is a test message'));
-	res.send(db);
+	if(req.body.message){
+		db.push(new Message(req.body.message));
+		res.send(200);
+	} else {
+		res.status(400).send('message is required');
+	}
 });
 
 //POST Done /:id -- pushPop a message moving it from inProcess list to done list
