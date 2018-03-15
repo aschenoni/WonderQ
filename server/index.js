@@ -13,10 +13,10 @@ app.use(bodyParser.json());
 
 //Handle Routers
 import message from './routes/message';
-
+import monitor from './routes/monitor';
 //Router Routes
 app.use('/message', message);
-// app.use(bodyParser);
+app.use('/monitor', monitor);
 
 //Static Routes
 //Route Simulation client

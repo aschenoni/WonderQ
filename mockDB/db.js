@@ -27,13 +27,30 @@ export default class DB {
 	}
 
 	push(value, list = this.default){
-		this.lists[list].push(new ListNode(value));
+		let node = value instanceof ListNode ? value : new ListNode(value);
+		this.lists[list].push(node);
 		return this; //allow chaining
 	}
 
 	pop(list = this.default){
 		return this.lists[list].pop();
 	}
+
+	findById(id, list = this.default){
+		list = this.lists[list];
+		return list.queue.find((item)=> item.id === id);
+	}
+
+	popById(id, list = this.default){
+		list = this.lists[list];
+		let idIndex = list.queue.findIndex((item)=> item.id === id);
+		let node = list.queue.splice(idIndex, 1); 
+		return node[0];
+	}
+
+	// popPushById(id, popFrom, pushTo){
+
+	// }
 
 	//For cases when we need a popped node to push to the front of the list
 	priorityPopPush(popFromListName, pushToListName){
