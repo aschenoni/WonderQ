@@ -1,7 +1,8 @@
 export default class Message {
-	constructor(text){
+	constructor(text, author){
 		this.text = text;
 		this.priority = 0;
+		this.author = author;
 	}
 
 	upPriority(){
