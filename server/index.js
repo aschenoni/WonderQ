@@ -3,6 +3,12 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import path from 'path';
 import config from '../config';
+import socketIo from 'socket.io';
+
+
+
+//Setup Socket-io
+const io = socketIo.listen('3003', {origins: '*:*'});
 
 //Initialize db
 import db from '../mockDB'; //pretend we did all our magical initialization/connection with a DB through a native api
@@ -26,3 +32,9 @@ app.use('/dev-tools', express.static(path.join(__dirname, '../QDevTools/client')
 
 
 app.listen(config.WONDER_Q_SERVER_PORT, ()=> console.log(`WonderQ started on ${config.WONDER_Q_SERVER_PORT}`));
+
+io.on('connection', function(client){
+	console.log('client connected');
+
+	setInterval(()=>{ client.emit('message', db)}, 1000);
+});

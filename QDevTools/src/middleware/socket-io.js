@@ -2,8 +2,8 @@ import io from 'socket.io-client';
 import * as types from '../actions/actionTypes';
 import actions from '../actions/actions';
 
-const socket = io('http://localhost:8080');
-
+const socket = io('http://localhost:3003');
+console.log(socket);
 const socketMiddleware = (() => (store) => (next) => (action) => {
 		switch (action.type) {
 			case types.SOCKET_IO_CONNECT:
@@ -33,7 +33,7 @@ return next(action);
 			}
 
 			function onMessage (message, socket, store) {
-				store.dispatch(actions.printer.update(message)); // dispatch message action with message payload
+				store.dispatch(actions.db.update(message)); // dispatch message action with message payload
 			}
 		}
 

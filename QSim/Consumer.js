@@ -30,15 +30,18 @@ export default class Consumer {
 	}
 
 	processMessage(message){
-		message = JSON.parse(message);
-		console.log('MESSAGE', message, message.id);
-		if(Math.random() > this.failureRate){ //Success!
-			request({url: `${this.doneUrl}${message.id}`, method: 'POST', headers: {consumerid: this.consumerId}})
-				.then(res => console.log(`${message.id} passed`))
-				.catch(err => console.log(`err`));
+		if(message){
+			message = JSON.parse(message);
+			if(Math.random() > this.failureRate){ //Success!
+				setTimeout(()=>{ //wait a second to imitate processing time
+					request({url: `${this.doneUrl}${message.id}`, method: 'POST', headers: {consumerid: this.consumerId}})
+						.then(res => console.log(`${message.id} passed`))
+						.catch(err => console.log(`err`));
+				}, 1000)
 
-		} else {
-			console.log(`${message.id} failed`);
+			} else {
+				console.log(`${message.id} failed`);
+			}
 		}
 	}
 

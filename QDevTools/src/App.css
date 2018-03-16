@@ -9,8 +9,10 @@
 
 .App-header {
   background-color: #222;
-  padding: 20px;
+  padding: 25px;
   color: white;
+  display: flex;
+  justify-content: space-around;
 }
 
 .App-title {
@@ -19,6 +21,26 @@
 
 .App-intro {
   font-size: large;
+}
+
+.list-box {
+  border-radius: 5px;
+  background-color: #555;
+  min-width: 250px;
+  
+}
+
+.list-box-header {
+  background-color: #999;
+  padding: 5px 0 5px 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.list-box-body {
+  padding: 5px;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 @keyframes App-logo-spin {

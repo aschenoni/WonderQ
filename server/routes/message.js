@@ -17,9 +17,15 @@ const snitch = new Snitch(5);
 	//if the consumer doesn't respone with GET /Done/:id before expiration time
 	//we need to push pop this node back to the from of the list
 router.get('/', (req, res)=>{
-	let poppedNode = db.popPush(0, 'InProcess');
-	poppedNode.consumer = req.headers.consumerid;
-	snitch.register(poppedNode);
+	let poppedNode;
+	if(db.lists["0"].queue.length > 0){
+		poppedNode = db.popPush(0, 'InProcess');
+		
+		if(poppedNode){
+			poppedNode.consumer = req.headers.consumerid;
+			snitch.register(poppedNode);
+		}
+	}
 	res.send(poppedNode);
 });
 
